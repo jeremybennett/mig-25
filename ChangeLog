@@ -1,5 +1,11 @@
 2014-12-30  Jeremy Bennett <jeremy@jeremybennett.com>
 
+	* f1.scad (text_imprint): Created.
+	(f1_flat): Add scaling
+	(f1): Add scaling and labeling.
+
+2014-12-30  Jeremy Bennett <jeremy@jeremybennett.com>
+
 	* f1.scad: Created.
 
 2014-12-29  Jeremy Bennett <jeremy@jeremybennett.com>
