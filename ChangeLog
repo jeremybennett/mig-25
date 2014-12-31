@@ -1,4 +1,10 @@
-2014-12-30  Jeremy Bennett <jeremy@jeremybennett.com>
+2014-12-31  Jeremy Bennett <jeremy@jeremybennett.com>
+
+	* f1.scad (text_imprint): Moved to include file.
+	* f10.scad: Created.
+	* text-imprint.scad: Created.
+
+2014-12-31  Jeremy Bennett <jeremy@jeremybennett.com>
 
 	* f1.scad (text_imprint): Created.
 	(f1_flat): Add scaling

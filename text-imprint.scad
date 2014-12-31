@@ -1,4 +1,4 @@
-// Former F1 for MiG-25 Model
+// Text imprinting for MiG-25 Model
 
 // Copyright (C) 2014 Jeremy Bennett <jeremy@jeremybennett.com>
 
@@ -12,8 +12,6 @@
 // 45678901234567890123456789012345678901234567890123456789012345678901234567890
 
 use <MCAD/bitmap/bitmap.scad>
-use <text_imprint.scad>
-
 
 // Put the name at a location and height
 
@@ -28,44 +26,9 @@ use <text_imprint.scad>
 // @param x   x offset of text center
 // @param y   y offset of text center
 module text_imprint (s = 1, t, tcount, h, a, x, y) {
-	translate (v = [x * s, y * s, h * 9 / 10])
+	translate (v = [x * s, y * s, h * 5 / 6])
 		rotate (a = [0, 0, a])
 			translate (v = [0, -4 * s * (tc - 1), 0])
 				8bit_str (chars = t, char_count = tc, block_size = s,
-				          height = h / 5);
+				          height = h / 3);
 }
-
-
-// The basic flat polygon
-
-// @param s  Scale factor. Default 1
-module f1_flat (s = 1) {
-	polygon (points = [ [10.32 * s,  0.00 * s],
-	                    [ 0.00 * s, 10.32 * s],
-	                    [ 0.00 * s, 40.48 * s],
-	                    [10.32 * s, 50.80 * s],
-	                    [42.86 * s, 50.80 * s],
-	                    [53.98 * s, 38.89 * s],
-	                    [53.98 * s, 11.91 * s],
-	                    [42.86 * s,  0.00 * s] ]);
-}
-
-
-// Extrude and label the polygon
-
-// @param h  Height of the piece.  Not affected by s
-// @param s  Scale factor.  Default 1
-module f1 (h, s = 1) {
-	difference () {
-		linear_extrude (height = h)
-			f1_flat (s = s);
-		text_imprint (s = s, t = ["F", "1"], tc = 2, h = h, a = 0,
-		              x = 53.98 / 2, y = 50.80 / 2);
-		text_imprint (s = s, t = ["T", "O", "P"], tc = 3, h = h, a = 0,
-		              x = 5, y = 50.80 / 2);
-	}
-}
-
-
-// 3/16" thick former
-f1 (h = 25.4 * 3 / 16, s = 1);
